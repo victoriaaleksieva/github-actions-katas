@@ -40,6 +40,10 @@ jobs:
    needs: [Build]
    permissions: 
      packages: write 
+   env:
+    github_username: ${{ github.actor }}
+    github_password: ${{ secrets.GITHUB_TOKEN }}
+    GIT_COMMIT: ${{ github.sha }}
    steps:
     - name: Download code
       uses: actions/download-artifact@v4
